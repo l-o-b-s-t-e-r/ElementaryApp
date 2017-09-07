@@ -13,15 +13,22 @@ import loboda.elementary.app.di.components.DaggerAppComponent;
 
 public class App extends Application {
 
+    private static App instance;
+
     private static AppComponent component;
 
     public static AppComponent getComponent() {
         return component;
     }
 
+    public static App getInstance() {
+        return instance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
 
         Realm.init(this);
         Realm.setDefaultConfiguration(
