@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.registration.RegistrationActivity" />
-        <activity android:name=".ui.login.LoginActivity"></activity>
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.rating.RatingActivity"></activity>
     </application>
 
 </manifest>
