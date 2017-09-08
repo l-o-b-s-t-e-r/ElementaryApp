@@ -4,7 +4,6 @@ import javax.inject.Inject;
 
 import loboda.elementary.app.manager.IDataManager;
 import loboda.elementary.app.ui.base.BasePresenter;
-import loboda.elementary.app.ui.base.IBasePresenter;
 
 /**
  * Created by Lobster on 07.09.17.
