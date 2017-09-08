@@ -1,34 +1,34 @@
 package loboda.elementary.app.ui.registration;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 
+import javax.inject.Inject;
+
 import loboda.elementary.app.App;
 import loboda.elementary.app.R;
 import loboda.elementary.app.databinding.ActivityRegistrationBinding;
 import loboda.elementary.app.di.modules.RegistrationModule;
-import loboda.elementary.app.models.User;
+import loboda.elementary.app.models.RegistrationModel;
 import loboda.elementary.app.ui.base.BaseActivity;
 import loboda.elementary.app.ui.main.MainActivity;
 
-public class RegistrationActivity extends BaseActivity<RegistrationPresenter> implements IRegistrationPresenter.View {
+public class RegistrationActivity extends BaseActivity<RegistrationPresenter, ActivityRegistrationBinding> implements IRegistrationPresenter.View {
 
-    private ActivityRegistrationBinding mBinding;
-    private User mUser = new User();
+    @Inject
+    RegistrationModel registeringModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_registration);
-        mBinding.completeBtn.setOnClickListener(new View.OnClickListener() {
+        binding.completeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (verifyInputInfo()) {
-                    presenter.registerUser(mUser);
+                    presenter.registerUser(registeringModel);
                 }
             }
         });
@@ -37,20 +37,20 @@ public class RegistrationActivity extends BaseActivity<RegistrationPresenter> im
     private boolean verifyInputInfo() {
         boolean verified = true;
 
-        String email = mBinding.email.getText().toString();
+        String email = binding.email.getText().toString();
         if (!TextUtils.isEmpty(email) || Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            mUser.setEmail(email);
+            registeringModel.setEmail(email);
         } else {
             verified = false;
-            mBinding.email.setError("Invalid Email");
+            binding.email.setError("Invalid Email");
         }
 
-        String name = mBinding.name.getText().toString();
+        String name = binding.name.getText().toString();
         if (!TextUtils.isEmpty(email)) {
-            mUser.setName(name);
+            registeringModel.setName(name);
         } else {
             verified = false;
-            mBinding.email.setError("Username cannot be empty");
+            binding.name.setError("Username cannot be empty");
         }
 
         return verified;
@@ -61,6 +61,11 @@ public class RegistrationActivity extends BaseActivity<RegistrationPresenter> im
         App.getComponent()
                 .plus(new RegistrationModule(this))
                 .inject(this);
+    }
+
+    @Override
+    public int layoutId() {
+        return R.layout.activity_registration;
     }
 
     @Override

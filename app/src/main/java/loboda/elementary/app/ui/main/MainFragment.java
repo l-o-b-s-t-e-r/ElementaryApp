@@ -1,21 +1,14 @@
 package loboda.elementary.app.ui.main;
 
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import loboda.elementary.app.App;
 import loboda.elementary.app.R;
+import loboda.elementary.app.databinding.FragmentMainBinding;
 import loboda.elementary.app.di.modules.MainModule;
 import loboda.elementary.app.ui.base.BaseFragment;
 
 
-public class MainFragment extends BaseFragment<MainPresenter> implements IMainPresenter.View {
+public class MainFragment extends BaseFragment<MainPresenter, FragmentMainBinding> implements IMainPresenter.View {
 
     @Override
     public void inject() {
@@ -25,9 +18,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainPr
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+    public int layoutId() {
+        return R.layout.fragment_main;
     }
-
 }

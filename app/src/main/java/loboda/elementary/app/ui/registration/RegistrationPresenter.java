@@ -3,7 +3,7 @@ package loboda.elementary.app.ui.registration;
 import javax.inject.Inject;
 
 import loboda.elementary.app.manager.IDataManager;
-import loboda.elementary.app.models.User;
+import loboda.elementary.app.models.RegistrationModel;
 import loboda.elementary.app.ui.base.BasePresenter;
 
 /**
@@ -18,7 +18,7 @@ public class RegistrationPresenter extends BasePresenter implements IRegistratio
     }
 
     @Override
-    public void registerUser(User user) {
+    public void registerUser(RegistrationModel model) {
 
     }
 
