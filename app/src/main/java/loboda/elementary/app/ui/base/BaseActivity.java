@@ -5,6 +5,7 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import javax.inject.Inject;
 
@@ -50,7 +51,13 @@ public abstract class BaseActivity<T extends IBasePresenter.Actions, E extends V
     }
 
     @Override
-    public void showError(Throwable throwable) {
+    public void log(String message) {
+        Log.i("INFO", message);
+    }
+
+    @Override
+    public void log(String message, Throwable throwable) {
+        Log.e("ERROR", message);
         throwable.printStackTrace();
     }
 

@@ -25,6 +25,12 @@
                 android:hint="Password"
                 android:inputType="textPassword" />
 
+            <TextView
+                android:id="@+id/remindPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forgot the password?" />
+
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"

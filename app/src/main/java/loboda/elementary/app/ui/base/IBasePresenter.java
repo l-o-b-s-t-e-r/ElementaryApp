@@ -22,7 +22,9 @@ public interface IBasePresenter {
 
         void hideProgress();
 
-        void showError(Throwable throwable);
+        void log(String message);
+
+        void log(String message, Throwable throwable);
 
     }
 

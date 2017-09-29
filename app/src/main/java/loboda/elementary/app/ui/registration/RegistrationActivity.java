@@ -14,6 +14,7 @@ import loboda.elementary.app.databinding.ActivityRegistrationBinding;
 import loboda.elementary.app.di.modules.RegistrationModule;
 import loboda.elementary.app.models.RegistrationModel;
 import loboda.elementary.app.ui.base.BaseActivity;
+import loboda.elementary.app.ui.login.LoginActivity;
 import loboda.elementary.app.ui.main.MainActivity;
 
 public class RegistrationActivity extends BaseActivity<RegistrationPresenter, ActivityRegistrationBinding> implements IRegistrationPresenter.View {
@@ -24,36 +25,49 @@ public class RegistrationActivity extends BaseActivity<RegistrationPresenter, Ac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding.completeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (verifyInputInfo()) {
-                    presenter.registerUser(registeringModel);
-                }
+        binding.completeBtn.setOnClickListener(view -> {
+            if (verifyInputInfo()) {
+                presenter.registerUser(registeringModel);
             }
         });
+
+        binding.signIn.setOnClickListener(view -> startActivity(new Intent(RegistrationActivity.this, LoginActivity.class)));
     }
 
     private boolean verifyInputInfo() {
         boolean verified = true;
 
-        String email = binding.email.getText().toString();
-        if (!TextUtils.isEmpty(email) || Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        String email = binding.email.getEditText().getText().toString();
+        if (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             registeringModel.setEmail(email);
+            binding.email.setError(null);
         } else {
             verified = false;
-            binding.email.setError("Invalid Email");
+            binding.email.setError(getString(R.string.invalid_email));
         }
 
-        String name = binding.name.getText().toString();
-        if (!TextUtils.isEmpty(email)) {
+        String name = binding.username.getEditText().getText().toString();
+        if (!TextUtils.isEmpty(name)) {
             registeringModel.setName(name);
+            binding.username.setError(null);
         } else {
             verified = false;
-            binding.name.setError("Username cannot be empty");
+            binding.username.setError(getString(R.string.username_empty));
         }
 
         return verified;
+    }
+
+    @Override
+    public void showProgress() {
+        binding.progress.setVisibility(View.VISIBLE);
+        binding.completeBtn.setEnabled(false);
+    }
+
+    @Override
+    public void hideProgress() {
+        binding.progress.setVisibility(View.INVISIBLE);
+        binding.completeBtn.setEnabled(true);
     }
 
     @Override

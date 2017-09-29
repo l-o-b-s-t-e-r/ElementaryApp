@@ -6,6 +6,7 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,13 @@ public abstract class BaseFragment<T extends IBasePresenter.Actions, E extends V
     }
 
     @Override
-    public void showError(Throwable throwable) {
+    public void log(String message) {
+        Log.i("INFO", message);
+    }
+
+    @Override
+    public void log(String message, Throwable throwable) {
+        Log.e("ERROR", message);
         throwable.printStackTrace();
     }
 

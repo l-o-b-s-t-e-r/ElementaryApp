@@ -33,6 +33,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter, ActivityLoginBin
                 }
             }
         });
+
+        binding.remindPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //show dialog
+            }
+        });
     }
 
     private boolean verifyInputInfo() {

@@ -7,13 +7,13 @@ import loboda.elementary.app.manager.IDataManager;
  * Created by Lobster on 07.09.17.
  */
 
-public class BasePresenter implements IBasePresenter.Actions {
+public class BasePresenter<T extends IBasePresenter.View> implements IBasePresenter.Actions {
 
-    private IBasePresenter.View mView;
-    private IDataManager mData;
+    protected T mView;
+    protected IDataManager mData;
     private Realm mRealm;
 
-    public BasePresenter(IBasePresenter.View view, IDataManager data) {
+    public BasePresenter(T view, IDataManager data) {
         mView = view;
         mData = data;
     }
@@ -21,6 +21,10 @@ public class BasePresenter implements IBasePresenter.Actions {
     @Override
     public void setRealm(Realm realm) {
         mRealm = realm;
+    }
+
+    public Realm getRealm() {
+        return mRealm;
     }
 
     @Override
