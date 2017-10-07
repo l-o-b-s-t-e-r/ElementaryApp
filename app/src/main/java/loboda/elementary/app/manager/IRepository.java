@@ -9,7 +9,9 @@ import loboda.elementary.app.models.User;
  * Created by Lobster on 07.09.17.
  */
 
-public interface IDataManager {
+public interface IRepository {
+
+    Task<AuthResult> logInUser(String email, String password);
 
     Task<AuthResult> registerUser(String email, String password);
 

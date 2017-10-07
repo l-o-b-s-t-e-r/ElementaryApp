@@ -1,7 +1,7 @@
 package loboda.elementary.app.ui.base;
 
 import io.realm.Realm;
-import loboda.elementary.app.manager.IDataManager;
+import loboda.elementary.app.manager.IRepository;
 
 /**
  * Created by Lobster on 07.09.17.
@@ -10,12 +10,12 @@ import loboda.elementary.app.manager.IDataManager;
 public class BasePresenter<T extends IBasePresenter.View> implements IBasePresenter.Actions {
 
     protected T mView;
-    protected IDataManager mData;
+    protected IRepository mRepository;
     private Realm mRealm;
 
-    public BasePresenter(T view, IDataManager data) {
+    public BasePresenter(T view, IRepository repository) {
         mView = view;
-        mData = data;
+        mRepository = repository;
     }
 
     @Override

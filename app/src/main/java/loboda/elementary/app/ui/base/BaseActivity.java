@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -48,6 +49,11 @@ public abstract class BaseActivity<T extends IBasePresenter.Actions, E extends V
     @Override
     public void hideProgress() {
 
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package loboda.elementary.app.ui.registration;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +20,10 @@ import loboda.elementary.app.ui.main.MainActivity;
 
 public class RegistrationActivity extends BaseActivity<RegistrationPresenter, ActivityRegistrationBinding> implements IRegistrationPresenter.View {
 
+    public static void start(Context context) {
+        context.startActivity(new Intent(context, RegistrationActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
+
     @Inject
     RegistrationModel registeringModel;
 
@@ -31,7 +36,7 @@ public class RegistrationActivity extends BaseActivity<RegistrationPresenter, Ac
             }
         });
 
-        binding.signIn.setOnClickListener(view -> startActivity(new Intent(RegistrationActivity.this, LoginActivity.class)));
+        binding.signIn.setOnClickListener(view -> LoginActivity.start(RegistrationActivity.this));
     }
 
     private boolean verifyInputInfo() {
@@ -84,6 +89,6 @@ public class RegistrationActivity extends BaseActivity<RegistrationPresenter, Ac
 
     @Override
     public void startMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
+        MainActivity.start(this);
     }
 }

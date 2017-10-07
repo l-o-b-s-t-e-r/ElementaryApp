@@ -14,7 +14,7 @@ public class AppSharedPreferences {
     private final String ELEMENTARY_PREFERENCES = "elementary_preferences";
     private static AppSharedPreferences mAppSharedPreferences;
 
-    private final String LOGGED_IN = "logged_in";
+    private final String REGISTERED = "registered";
 
     private SharedPreferences mPreferences;
 
@@ -30,13 +30,13 @@ public class AppSharedPreferences {
         return mAppSharedPreferences;
     }
 
-    public boolean isLoggedIn() {
-        return mPreferences.getBoolean(LOGGED_IN, false);
+    public boolean isRegistered() {
+        return mPreferences.getBoolean(REGISTERED, false);
     }
 
-    public void setLoggedIn(boolean status) {
+    public void setRegistered(boolean status) {
         mPreferences.edit()
-                .putBoolean(LOGGED_IN, status)
+                .putBoolean(REGISTERED, status)
                 .apply();
     }
 }

@@ -2,7 +2,7 @@ package loboda.elementary.app.ui.rating;
 
 import javax.inject.Inject;
 
-import loboda.elementary.app.manager.IDataManager;
+import loboda.elementary.app.manager.IRepository;
 import loboda.elementary.app.ui.base.BasePresenter;
 
 /**
@@ -12,7 +12,7 @@ import loboda.elementary.app.ui.base.BasePresenter;
 public class RatingPresenter extends BasePresenter implements IRatingPresenter.Actions {
 
     @Inject
-    public RatingPresenter(IRatingPresenter.View view, IDataManager data) {
+    public RatingPresenter(IRatingPresenter.View view, IRepository data) {
         super(view, data);
     }
 

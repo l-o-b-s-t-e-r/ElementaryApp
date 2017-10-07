@@ -11,9 +11,9 @@ public interface ILoginPresenter extends IBasePresenter {
 
     interface Actions extends IBasePresenter.Actions {
 
-        void login(LoginModel model);
+        void logIn(LoginModel model);
 
-        void remindPassword(String email);
+        void recoverPassword(String email);
 
     }
 

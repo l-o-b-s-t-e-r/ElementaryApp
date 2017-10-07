@@ -4,9 +4,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.realm.Realm;
-import loboda.elementary.app.manager.DataManager;
-import loboda.elementary.app.manager.IDataManager;
+import loboda.elementary.app.manager.IRepository;
+import loboda.elementary.app.manager.Repository;
 
 /**
  * Created by Lobster on 19.08.17.
@@ -17,8 +16,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public IDataManager provideDataManager() {
-        return new DataManager();
+    public IRepository provideDataManager() {
+        return new Repository();
     }
 
 }

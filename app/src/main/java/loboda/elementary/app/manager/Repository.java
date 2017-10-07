@@ -12,7 +12,7 @@ import loboda.elementary.app.models.User;
  * Created by Lobster on 19.08.17.
  */
 
-public class DataManager implements IDataManager {
+public class Repository implements IRepository {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private DatabaseReference mFirebaseData = FirebaseDatabase.getInstance().getReference();
@@ -20,6 +20,11 @@ public class DataManager implements IDataManager {
     @Override
     public Task<AuthResult> registerUser(String email, String password) {
         return mAuth.createUserWithEmailAndPassword(email, password);
+    }
+
+    @Override
+    public Task<AuthResult> logInUser(String email, String password) {
+        return mAuth.signInWithEmailAndPassword(email, password);
     }
 
     @Override
