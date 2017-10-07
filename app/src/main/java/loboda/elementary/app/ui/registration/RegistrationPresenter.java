@@ -1,5 +1,10 @@
 package loboda.elementary.app.ui.registration;
 
+import android.util.Base64;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import loboda.elementary.app.App;
@@ -50,10 +55,9 @@ public class RegistrationPresenter extends BasePresenter<IRegistrationPresenter.
     }
 
     private String generatePassword() {
-        return "123456";
-        //SimpleDateFormat sdf = new SimpleDateFormat("HHmmssSSS");
-        //Date currentDate = new Date(System.currentTimeMillis());
-        //return Base64.encodeToString(sdf.format(currentDate).getBytes(), Base64.DEFAULT);
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmmssSSS");
+        Date currentDate = new Date(System.currentTimeMillis());
+        return Base64.encodeToString(sdf.format(currentDate).getBytes(), Base64.DEFAULT);
     }
 
 }

@@ -2,7 +2,7 @@ package loboda.elementary.app.di.components;
 
 import dagger.Subcomponent;
 import loboda.elementary.app.di.modules.MainModule;
-import loboda.elementary.app.ui.main.MainFragment;
+import loboda.elementary.app.ui.main.MainActivity;
 
 /**
  * Created by Lobster on 07.09.17.
@@ -11,6 +11,6 @@ import loboda.elementary.app.ui.main.MainFragment;
 @Subcomponent(modules = {MainModule.class})
 public interface MainComponent {
 
-    void inject(MainFragment fragment);
+    void inject(MainActivity activity);
 
 }

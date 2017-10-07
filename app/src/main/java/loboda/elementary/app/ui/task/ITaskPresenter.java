@@ -1,12 +1,12 @@
-package loboda.elementary.app.ui.main;
+package loboda.elementary.app.ui.task;
 
 import loboda.elementary.app.ui.base.IBasePresenter;
 
 /**
- * Created by Lobster on 07.09.17.
+ * Created by Lobster on 08.09.17.
  */
 
-public interface IMainPresenter extends IBasePresenter {
+public interface ITaskPresenter extends IBasePresenter {
 
     interface Actions extends IBasePresenter.Actions {
 

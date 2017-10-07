@@ -12,8 +12,8 @@ import loboda.elementary.app.ui.base.BasePresenter;
 public class MainPresenter extends BasePresenter implements IMainPresenter.Actions {
 
     @Inject
-    public MainPresenter(IMainPresenter.View view, IRepository data) {
-        super(view, data);
+    public MainPresenter(IMainPresenter.View view, IRepository repository) {
+        super(view, repository);
     }
 
 }
