@@ -1,2 +1,2 @@
 # Elementary Application
-# Master branch v6.0
+# Master branch v7.0
