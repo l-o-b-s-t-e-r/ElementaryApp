@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "396009941763",
+    "firebase_url": "https://elementary-app.firebaseio.com",
+    "project_id": "elementary-app",
+    "storage_bucket": "elementary-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396009941763:android:bee2ff1dc185f84b",
+        "android_client_info": {
+          "package_name": "loboda.elementary.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396009941763-165e1docu5kodkcce8atr65dehhd3mci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "loboda.elementary.app",
+            "certificate_hash": "1e76bed20aa43eb2099fefb1f9fd7cf68f550565"
+          }
+        },
+        {
+          "client_id": "396009941763-0316i83p98j0cj12qebrreobcem31iit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_o1jiIIVIRLoGsGd24ZcYkI4-adZ-wGM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396009941763-0316i83p98j0cj12qebrreobcem31iit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
