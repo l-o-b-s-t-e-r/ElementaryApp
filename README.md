@@ -1,2 +1,2 @@
-# Elementary App
+# Elementary
 # Master branch v2.0
